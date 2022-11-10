@@ -1,0 +1,58 @@
+import java.util.*;
+
+public class Main
+{
+    public static void main(String[] args) {
+        outputPrice();
+    }
+}
+
+
+public static void outputPrice(){
+    Scanner scanner = new Scanner(System.in);
+    int numFamilies = 0;
+    double totalPrice = 0;
+    
+    System.out.System.out.println("How many families are there?");
+    numFamilies = scanner.nextInt();
+    
+    for (int i = 0;i < numFamilies; i++ ){
+        totalPrice += addTax(getFamilyPrice());
+    } 
+    
+    System.out.println("The total cost is $" + totalPrice);
+    
+}
+
+
+public static double addTax(double total_cost){
+    return (1+.0975)*total_cost;
+}
+
+
+public static double getFamilyPrice(){
+    double totalPrice = 0;
+    int familyMembers = 0;
+    Scanner scanner = new Scanner(System.in);
+    
+    System.out.System.out.println("How many people are in the family?");
+    familyMembers = scanner.nextInt();
+    
+    for (int i = 0;i < familyMembers; i++ ){    
+        int age = 0;
+        
+        System.out.System.out.println("What is the age of the family member?");
+        age = scanner.nextInt();
+        if(age >= 2 && age <=18){
+            totalPrice += 10.10;
+        }
+        else if (age>= 19 && age<=55){
+            totalPrice += 8.15;
+        }
+        else if (age >= 56){
+            totalPrice += 6.30;
+        }
+        
+    }
+    return totalPrice;
+}
